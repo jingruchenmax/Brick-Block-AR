@@ -86,48 +86,48 @@ public class cornerElement : MonoBehaviour
 	{
 		int width = levelGenerator.instance.width;
 		int height = levelGenerator.instance.height;
-
-		if(coord.x < width && coord.y < height && coord.z < width)
+		int length = levelGenerator.instance.length;
+		if (coord.x < length && coord.y < height && coord.z < width)
 		{
 			//UpperNorthEast
-			nearGridElements[0] = levelGenerator.instance.gridElements[coord.x + width * (coord.z + width * coord.y)];
+			nearGridElements[0] = levelGenerator.instance.gridElements[coord.x + length * (coord.z + width * coord.y)];
 		}
 		if(coord.x > 0 && coord.y < height & coord.z < width)
 		{
 			//UpperNorthWest
-			nearGridElements[1] = levelGenerator.instance.gridElements[coord.x - 1 + width * (coord.z + width * coord.y)];
+			nearGridElements[1] = levelGenerator.instance.gridElements[coord.x - 1 + length * (coord.z + width * coord.y)];
 		}
 		if(coord.x > 0 && coord.y < height & coord.z > 0)
 		{
 			//UpperSouthWest
-			nearGridElements[2] = levelGenerator.instance.gridElements[coord.x - 1 + width * (coord.z - 1 + width * coord.y)];
+			nearGridElements[2] = levelGenerator.instance.gridElements[coord.x - 1 + length * (coord.z - 1 + width * coord.y)];
 		}
-		if(coord.x < width && coord.y < height && coord.z > 0)
+		if(coord.x < length && coord.y < height && coord.z > 0)
 		{
 			//UpperSouthEast
-			nearGridElements[3] = levelGenerator.instance.gridElements[coord.x + width * (coord.z - 1 + width * coord.y)];
+			nearGridElements[3] = levelGenerator.instance.gridElements[coord.x + length * (coord.z - 1 + width * coord.y)];
 		}
 
 
-		if(coord.x < width && coord.y > 0 && coord.z < width)
+		if(coord.x < length && coord.y > 0 && coord.z < width)
 		{
 			//LowerNorthEast
-			nearGridElements[4] = levelGenerator.instance.gridElements[coord.x + width * (coord.z + width * (coord.y - 1))];
+			nearGridElements[4] = levelGenerator.instance.gridElements[coord.x + length * (coord.z + width * (coord.y - 1))];
 		}
 		if(coord.x > 0 && coord.y > 0 & coord.z < width)
 		{
 			//LowerNorthWest
-			nearGridElements[5] = levelGenerator.instance.gridElements[coord.x - 1 + width * (coord.z + width * (coord.y - 1))];
+			nearGridElements[5] = levelGenerator.instance.gridElements[coord.x - 1 + length * (coord.z + width * (coord.y - 1))];
 		}
 		if(coord.x > 0 && coord.y > 0 & coord.z > 0)
 		{
 			//LowerSouthWest
-			nearGridElements[6] = levelGenerator.instance.gridElements[coord.x - 1 + width * (coord.z - 1 + width * (coord.y - 1))];
+			nearGridElements[6] = levelGenerator.instance.gridElements[coord.x - 1 + length * (coord.z - 1 + width * (coord.y - 1))];
 		}
-		if(coord.x < width && coord.y > 0 && coord.z > 0)
+		if(coord.x < length && coord.y > 0 && coord.z > 0)
 		{
 			//LowerSouthEast
-			nearGridElements[7] = levelGenerator.instance.gridElements[coord.x + width * (coord.z - 1 + width * (coord.y - 1))];
+			nearGridElements[7] = levelGenerator.instance.gridElements[coord.x + length * (coord.z - 1 + width * (coord.y - 1))];
 		}
 
 

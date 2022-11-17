@@ -26,7 +26,7 @@ public class gridElement : MonoBehaviour
 	{
 		int width = levelGenerator.instance.width;
 		int height = levelGenerator.instance.height;
-
+		int length = levelGenerator.instance.length;
 		coord = new coord(setX, setY, setZ);
 		this.name = "GE_" + this.coord.x + "_" + this.coord.y + "_" + this.coord.z;
 		this.elementHeight = setElementHeight;
@@ -35,14 +35,14 @@ public class gridElement : MonoBehaviour
 		this.rend = this.GetComponent<Renderer>();
 
 		//setting corner elements
-		corners[0] = levelGenerator.instance.cornerElements[coord.x + (width +1) * (coord.z + (width +1) * coord.y)];
-		corners[1] = levelGenerator.instance.cornerElements[coord.x + 1 + (width +1) * (coord.z + (width +1) * coord.y)];
-		corners[2] = levelGenerator.instance.cornerElements[coord.x + (width +1) * (coord.z + 1 + (width +1) * coord.y)];
-		corners[3] = levelGenerator.instance.cornerElements[coord.x + 1 + (width +1) * (coord.z + 1 + (width +1) * coord.y)];
-		corners[4] = levelGenerator.instance.cornerElements[coord.x + (width +1) * (coord.z + (width +1) * (coord.y + 1))];
-		corners[5] = levelGenerator.instance.cornerElements[coord.x + 1 + (width +1) * (coord.z + (width +1) * (coord.y + 1))];
-		corners[6] = levelGenerator.instance.cornerElements[coord.x + (width +1) * (coord.z + 1 + (width +1) * (coord.y + 1))];
-		corners[7] = levelGenerator.instance.cornerElements[coord.x + 1 + (width +1) * (coord.z + 1 + (width +1) * (coord.y + 1))];
+		corners[0] = levelGenerator.instance.cornerElements[coord.x + (length +1) * (coord.z + (width +1) * coord.y)];
+		corners[1] = levelGenerator.instance.cornerElements[coord.x + 1 + (length + 1) * (coord.z + (width +1) * coord.y)];
+		corners[2] = levelGenerator.instance.cornerElements[coord.x + (length + 1) * (coord.z + 1 + (width +1) * coord.y)];
+		corners[3] = levelGenerator.instance.cornerElements[coord.x + 1 + (length + 1) * (coord.z + 1 + (width +1) * coord.y)];
+		corners[4] = levelGenerator.instance.cornerElements[coord.x + (length + 1) * (coord.z + (width +1) * (coord.y + 1))];
+		corners[5] = levelGenerator.instance.cornerElements[coord.x + 1 + (length + 1) * (coord.z + (width +1) * (coord.y + 1))];
+		corners[6] = levelGenerator.instance.cornerElements[coord.x + (length + 1) * (coord.z + 1 + (width +1) * (coord.y + 1))];
+		corners[7] = levelGenerator.instance.cornerElements[coord.x + 1 + (length + 1) * (coord.z + 1 + (width +1) * (coord.y + 1))];
 
 		//positioning corner elements
 		corners[0].SetPosition(col.bounds.min.x, col.bounds.min.y, col.bounds.min.z);

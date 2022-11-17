@@ -6,6 +6,7 @@ public class levelGenerator : MonoBehaviour {
 	public static levelGenerator instance;
 	public int width = 5;
 	public int height = 10;
+	public int length = 5;
 	public gridElement gridElement;
 	public cornerElement cornerElement;
 	public gridElement[] gridElements;
@@ -24,18 +25,18 @@ public class levelGenerator : MonoBehaviour {
 		float elementHeight;
 
 
-		gridElements = new gridElement[width * width * height];
-		cornerElements = new cornerElement[(width+1)  * (width+1) * (height+1)];
+		gridElements = new gridElement[length * width * height];
+		cornerElements = new cornerElement[(length+1)  * (width+1) * (height+1)];
 
 		for(int y = 0; y < height + 1; y++)
 		{
-			for(int x = 0; x < width + 1; x++)
+			for(int z = 0; z < width + 1; z++)
 			{
-				for(int z = 0; z < width + 1; z++)
+				for(int x = 0; x < length + 1; x++)
 				{
 					cornerElement cornerElementInstance = Instantiate(cornerElement, Vector3.zero, Quaternion.identity, this.transform);
 					cornerElementInstance.Initialize(x,y,z);
-					cornerElements[x+(width+1)*(z+(width+1)*y)] = cornerElementInstance;
+					cornerElements[x+(length+1)*(z+(width+1)*y)] = cornerElementInstance;
 				}
 			}
 		}
@@ -57,14 +58,14 @@ public class levelGenerator : MonoBehaviour {
 			{
 				elementHeight = 1;
 			}
-			for(int x = 0; x < width; x++)
+			for(int z = 0; z < width; z++)
 			{
-				for(int z = 0; z < width; z++)
+				for(int x = 0; x < length; x++)
 				{
 					gridElement gridElementInstance = Instantiate(gridElement, new Vector3((x+0.5f)*scale.x+positionOffset.x,yPos * scale.y+positionOffset.y, (z+0.5f) * scale.z+positionOffset.z), Quaternion.identity, this.transform);
 					gridElementInstance.transform.localScale = scale;
 					gridElementInstance.Initialize(x,y,z, elementHeight);
-					gridElements[x+width*(z+width*y)] = gridElementInstance;
+					gridElements[x+length*(z+width*y)] = gridElementInstance;
 				}
 			}
 		}
