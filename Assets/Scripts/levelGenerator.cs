@@ -20,7 +20,7 @@ public class levelGenerator : MonoBehaviour {
 	{
 		instance = this;
 		scale = transform.parent.localScale;
-		positionOffset = transform.parent.localPosition;
+	//	positionOffset = transform.parent.localPosition;
 		basementHeight = 1.5f - floorHeight / 2;
 		float elementHeight;
 

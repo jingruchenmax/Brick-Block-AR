@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - gridElement
+  - UI
+  - IsManipulable
   layers:
   - Default
   - TransparentFX
@@ -37,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Spatial Awareness
   m_SortingLayers:
   - name: Default
     uniqueID: 0
